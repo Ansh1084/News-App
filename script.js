@@ -1,5 +1,4 @@
-const API_KEY = "81ecff04b27a4d49ae89db5884c960d8";
-const url = "https://newsapi.org/v2/everything?q=";
+const url = "/api/news?q=";
 
 // --- Dark Mode Logic ---
 const themeBtn = document.getElementById("theme-btn");
@@ -70,7 +69,7 @@ async function fetchNews(query) {
     }
 
     try {
-        const res = await fetch(`${url}${encodeURIComponent(query)}&apiKey=${API_KEY}`);
+        const res = await fetch(`${url}${encodeURIComponent(query)}`);
         const data = await res.json();
 
         if (data.status === "error") {
