@@ -7,15 +7,40 @@
 }
 
 :root {
+    /* Light Mode Variables (Default) */
+    --bg-color: #f3faff;
     --primary-text-color: #183b56;
     --secondary-text-color: #577592;
     --accent-color: #2294ed;
     --accent-color-dark: #1d69a3;
+    --card-bg: #fff;
+    --card-hover-bg: #f9fdff;
+    --shadow-color: #d4ecff;
+    --nav-shadow: #bbd0e2;
+    --skeleton-bg: #e2e8f0;
+    --skeleton-gradient: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+}
+
+[data-theme="dark"] {
+    /* Dark Mode Variables */
+    --bg-color: #0d1117;
+    --primary-text-color: #c9d1d9;
+    --secondary-text-color: #8b949e;
+    --accent-color: #58a6ff;
+    --accent-color-dark: #316dca;
+    --card-bg: #161b22;
+    --card-hover-bg: #21262d;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --nav-shadow: rgba(0, 0, 0, 0.7);
+    --skeleton-bg: #21262d;
+    --skeleton-gradient: linear-gradient(90deg, #21262d 25%, #30363d 50%, #21262d 75%);
 }
 
 body {
     font-family: "Poppins", sans-serif;
     color: var(--primary-text-color);
+    background-color: var(--bg-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 p {
@@ -44,13 +69,14 @@ ul {
 }
 
 nav {
-    background-color: #f3faff;
-    box-shadow: 0 0 4px #bbd0e2;
+    background-color: var(--bg-color);
+    box-shadow: 0 0 4px var(--nav-shadow);
     position: fixed;
     top: 0;
     z-index: 99;
     left: 0;
     right: 0;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .main-nav {
@@ -82,6 +108,18 @@ nav {
     color: var(--accent-color);
 }
 
+.theme-toggle button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle button:hover {
+    transform: scale(1.1);
+}
+
 .search-bar {
     height: 32px;
     gap: 8px;
@@ -92,8 +130,10 @@ nav {
     height: 100%;
     padding-inline: 12px;
     border-radius: 4px;
-    border: 2px solid #bbd0e2;
+    border: 2px solid var(--nav-shadow);
     font-family: "Roboto", sans-serif;
+    background-color: var(--card-bg);
+    color: var(--primary-text-color);
 }
 
 .search-button {
@@ -125,18 +165,18 @@ main {
 .card {
     width: 360px;
     min-height: 400px;
-    box-shadow: 0 0 4px #d4ecff;
+    box-shadow: 0 0 4px var(--shadow-color);
     border-radius: 4px;
     cursor: pointer;
-    background-color: #fff;
+    background-color: var(--card-bg);
     overflow: hidden;
     transition: all 0.3s ease;
 }
 
 .card:hover {
-    box-shadow: 1px 1px 8px #d4ecff;
-    background-color: #f9fdff;
-    transform: translateY(-2px);
+    box-shadow: 1px 1px 12px var(--shadow-color);
+    background-color: var(--card-hover-bg);
+    transform: translateY(-4px);
 }
 
 .card-header img {

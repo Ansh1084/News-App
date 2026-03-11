@@ -12,7 +12,7 @@
     <nav>
         <div class="main-nav container flex">
             <a href="#" onclick="reload()" class="company-logo">
-                <img src="./assets/logo.png" alt="company logo">
+                <h1 style="color: var(--primary-text-color); font-size: 1.5rem;">News App</h1>
             </a>
             <div class="nav-links">
                 <ul class="flex">
@@ -20,6 +20,9 @@
                     <li class="hover-link nav-item" id="finance" onclick="onNavItemClick('finance')">Finance</li>
                     <li class="hover-link nav-item" id="politics" onclick="onNavItemClick('politics')">Politics</li>
                 </ul>
+            </div>
+            <div class="theme-toggle flex">
+                <button id="theme-btn" aria-label="Toggle Dark Mode" title="Toggle Dark Mode">🌙</button>
             </div>
             <div class="search-bar flex">
                 <input id="search-text" type="text" class="news-input" placeholder="e.g. Science">
@@ -47,6 +50,21 @@
             </div>
         </div>
     </template>
+
+    <template id="template-skeleton-card">
+        <div class="card skeleton-card">
+            <div class="card-header skeleton skeleton-img"></div>
+            <div class="card-content">
+                <div class="skeleton skeleton-title"></div>
+                <div class="skeleton skeleton-text" style="width: 50%; margin-block: 12px;"></div>
+                <div class="skeleton skeleton-text"></div>
+                <div class="skeleton skeleton-text"></div>
+                <div class="skeleton skeleton-text" style="width: 80%;"></div>
+            </div>
+        </div>
+    </template>
+
+    <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top">↑</button>
 
     <script src="script.js"></script>
 </body>
